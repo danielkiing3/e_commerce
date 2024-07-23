@@ -4,8 +4,8 @@ flutter_native_splash:
   color_dark: "#272727"
 
   # Light and Dark Splash Image
-  image: assets/logos/t-store-splash-logo-white.png
-  image_dark: assets/logos/t-store-splash-logo-black.png
+  image: assets/logos/t-store-splash-logo-black.png
+  image_dark: assets/logos/t-store-splash-logo-white.png
 
   android_12:
     # Light and Dark Background color
@@ -13,7 +13,7 @@ flutter_native_splash:
     color_dark: "#272727"
 
     # Light and Dark Splash Image
-    image: assets/logos/t-store-splash-logo-white.png
-    image_dark: assets/logos/t-store-splash-logo-black.png
+    image: assets/logos/t-store-splash-logo-black.png
+    image_dark: assets/logos/t-store-splash-logo-white.png
 
   web: false
