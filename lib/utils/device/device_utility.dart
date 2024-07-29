@@ -17,7 +17,17 @@ class UDeviceUtils {
   /// -- Set Status Bar Color
   static Future<void> setStatusBarColor(Color color) async {
     SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(statusBarColor: color),
+      SystemUiOverlayStyle(
+        statusBarColor: color,
+      ),
+    );
+  }
+
+  static Future<void> setNavBarColor() async {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        systemNavigationBarColor: Colors.transparent,
+      ),
     );
   }
 

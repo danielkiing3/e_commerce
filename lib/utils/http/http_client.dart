@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class UHttpHelper {
-  UHttpHelper._();
+  UHttpHelper._(); // Prevent class initialization'
 
   static const String _baseUrl =
       'https://your-api-base-url.com'; // Replace with your API base URL
