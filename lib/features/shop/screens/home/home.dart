@@ -1,6 +1,5 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:e_commerce/common/widgets/custom_shapes/containers/primary_header_container.dart';
+import 'package:e_commerce/features/shop/screens/all_products/all_products.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/promo_slider.dart';
@@ -8,10 +7,11 @@ import 'package:e_commerce/utils/constants/image_strings.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../../common/widgets/custom_shapes/containers/search_container.dart';
 import '../../../../common/widgets/layouts/grid_layout.dart';
 import '../../../../common/widgets/products/products_card/product_card_vertical.dart';
-import '../../../../common/widgets/texts/session_heading.dart';
+import '../../../../common/widgets/texts/section_heading.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -39,8 +39,8 @@ class HomeScreen extends StatelessWidget {
                     padding: EdgeInsets.only(left: USizes.defaultSpace),
                     child: Column(
                       children: [
-                        /// -- Heading
-                        USessionHeading(title: 'Popular Categories'),
+                        /// -- Categories Heading
+                        USectionHeading(title: 'Popular Categories'),
                         SizedBox(height: USizes.spaceBtwItems),
 
                         /// -- Categories
@@ -48,6 +48,7 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
+                  SizedBox(height: USizes.spaceBtwSections),
                 ],
               ),
             ),
@@ -58,20 +59,28 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   /// -- Promo Slider
-                  UPromoSlider(
+                  const UPromoSlider(
                     banners: [
                       UImages.promoBanner1,
                       UImages.promoBanner2,
                       UImages.promoBanner3,
                     ],
                   ),
-                  SizedBox(height: USizes.spaceBtwSections),
+                  const SizedBox(height: USizes.spaceBtwSections),
+
+                  /// -- Header
+                  USectionHeading(
+                    title: 'Popular Products',
+                    showActionButton: true,
+                    onPressed: () => Get.to(() => const AllProductsScreen()),
+                  ),
+                  const SizedBox(height: USizes.spaceBtwItems),
 
                   /// -- Popular Product
                   UGridLayout(
-                    itemCount: 2,
+                    itemCount: 6,
                     itemBuilder: (_, index) {
-                      return UProductCardVertical();
+                      return const UProductCardVertical();
                     },
                   ),
                 ],

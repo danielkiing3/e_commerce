@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class USessionHeading extends StatelessWidget {
-  const USessionHeading({
+class USectionHeading extends StatelessWidget {
+  const USectionHeading({
     super.key,
     this.textColor,
     required this.title,
@@ -18,6 +18,7 @@ class USessionHeading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           title,

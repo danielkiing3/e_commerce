@@ -13,18 +13,20 @@ class USearchContainer extends StatelessWidget {
     this.icon = Iconsax.search_normal,
     this.showBackground = true,
     this.showBorder = true,
+    this.padding = const EdgeInsets.symmetric(horizontal: USizes.defaultSpace),
   });
 
   final String text;
   final IconData? icon;
   final bool showBackground, showBorder;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
     final isDark = UHelperFunctions.isDarkMode(context);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: USizes.defaultSpace),
+      padding: padding,
       child: Container(
         width: UDeviceUtils.getScreenWidth(),
         padding: const EdgeInsets.all(USizes.md),

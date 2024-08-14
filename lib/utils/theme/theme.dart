@@ -1,6 +1,8 @@
+import 'package:e_commerce/utils/constants/colors.dart';
 import 'package:e_commerce/utils/theme/custom_themes/appbar_theme.dart';
 import 'package:e_commerce/utils/theme/custom_themes/bottom_sheet_theme.dart';
 import 'package:e_commerce/utils/theme/custom_themes/checkbox_theme.dart';
+import 'package:e_commerce/utils/theme/custom_themes/chip_theme.dart';
 import 'package:e_commerce/utils/theme/custom_themes/elevated_button_theme.dart';
 import 'package:e_commerce/utils/theme/custom_themes/outlined_button_theme.dart';
 import 'package:e_commerce/utils/theme/custom_themes/text_field_theme.dart';
@@ -14,11 +16,12 @@ class UAppTheme {
   static ThemeData lightTheme = ThemeData(
     fontFamily: 'Poppins',
     brightness: Brightness.light,
-    primaryColor: Colors.blue,
-    scaffoldBackgroundColor: Colors.white,
+    primaryColor: UColors.primary,
+    scaffoldBackgroundColor: UColors.white,
     appBarTheme: UAppBarTheme.lightAppBarTheme,
     bottomSheetTheme: UBottomSheetTheme.lightBottomSheetTheme,
     checkboxTheme: UCheckboxTheme.lightCheckboxTheme,
+    chipTheme: UChipTheme.lightChipTheme,
     elevatedButtonTheme: UElevatedButtonTheme.lightElevatedButtonTheme,
     outlinedButtonTheme: UOutlinedButtonTheme.lightOutlinedButtonTheme,
     inputDecorationTheme: UTextFormFieldTheme.lightInputDecorationTheme,
@@ -29,11 +32,12 @@ class UAppTheme {
   static ThemeData dartTheme = ThemeData(
     fontFamily: 'Poppins',
     brightness: Brightness.dark,
-    primaryColor: Colors.blue,
-    scaffoldBackgroundColor: Colors.black,
+    primaryColor: UColors.primary,
+    scaffoldBackgroundColor: UColors.black,
     appBarTheme: UAppBarTheme.darkAppBarTheme,
     bottomSheetTheme: UBottomSheetTheme.darkBottomSheetTheme,
     checkboxTheme: UCheckboxTheme.darkCheckboxTheme,
+    chipTheme: UChipTheme.darkChipTheme,
     elevatedButtonTheme: UElevatedButtonTheme.darkElevatedButtonTheme,
     outlinedButtonTheme: UOutlinedButtonTheme.darkOutlinedButtonTheme,
     inputDecorationTheme: UTextFormFieldTheme.darkInputDecorationTheme,

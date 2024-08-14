@@ -22,7 +22,7 @@ dependencies:
   url_launcher: ^6.3.0
   flutter_native_splash: ^2.4.1  
   smooth_page_indicator: ^1.2.0+3
-  carousel_slider: ^4.2.1
+  
 
 
   # ICONS  
@@ -34,6 +34,10 @@ dependencies:
   get_storage: ^2.1.1
 
   # PRODUCT SPECIFIC
+  readmore: ^3.0.0
+  carousel_slider: ^4.2.1
+  flutter_rating_bar: ^4.0.1
+  firebase_core: ^2.24.2
   
 
 
@@ -53,8 +57,10 @@ flutter:
     - assets/images/animations/
     - assets/logos/
     - assets/images/products/
+    - assets/images/content/
+    - assets/images/reviews/
 
-  #-----------------LOCAL ASSESTS---------------------#
+  #-----------------LOCAL FONTS ---------------------#
   
   fonts:
     - family: Poppins
@@ -74,3 +80,4 @@ flutter:
           weight: 600
         - asset: assets/fonts/Poppins-Bold.ttf
           weight: 800
+

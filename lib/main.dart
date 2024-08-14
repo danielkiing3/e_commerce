@@ -1,5 +1,4 @@
 import 'package:e_commerce/app.dart';
-import 'package:e_commerce/utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -13,6 +12,7 @@ void main() {
   // TODO: Await Native Splash
   // TODO: Initialize Firebase
   // TODO: Initialize Authenication
+  //
 
   runApp(const App());
 }

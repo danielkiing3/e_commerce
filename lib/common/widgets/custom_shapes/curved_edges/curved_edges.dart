@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Custom Clipper for the ClipPath use
 class UCustomCurvedEdges extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
@@ -11,9 +12,9 @@ class UCustomCurvedEdges extends CustomClipper<Path> {
     final lastPoint = Offset(30, size.height - 20);
     path.quadraticBezierTo(
       firstPoint.dx, // - 3 Point -- Control Point
-      firstPoint.dy, // - 3 Point -- Control Point
+      firstPoint.dy,
       lastPoint.dx, // - 4 Point
-      lastPoint.dy, // - 4 Point
+      lastPoint.dy,
     );
 
     final secondFirstPoint = Offset(0, size.height - 20);
@@ -37,39 +38,9 @@ class UCustomCurvedEdges extends CustomClipper<Path> {
     path.lineTo(size.width, 0);
     path.close();
 
-    // Path path = Path();
-    // path.lineTo(0, size.height * 1.0028571);
-    // path.quadraticBezierTo(size.width * 0.0859750, size.height * 0.8765429,
-    //     size.width * 0.1376500, size.height * 0.8914000);
-    // path.cubicTo(
-    //     size.width * 0.2076500,
-    //     size.height * 0.8642571,
-    //     size.width * 0.2751750,
-    //     size.height * 0.7864571,
-    //     size.width * 0.3504250,
-    //     size.height * 0.7959429);
-    // path.cubicTo(
-    //     size.width * 0.4316750,
-    //     size.height * 0.7967714,
-    //     size.width * 0.5023000,
-    //     size.height * 0.8660000,
-    //     size.width * 0.5450000,
-    //     size.height * 0.9085714);
-    // path.cubicTo(
-    //     size.width * 0.6143250,
-    //     size.height * 0.9739429,
-    //     size.width * 0.6808000,
-    //     size.height * 0.9962000,
-    //     size.width * 0.7600000,
-    //     size.height * 0.9971429);
-    // path.quadraticBezierTo(size.width * 0.8206250, size.height * 0.9985714,
-    //     size.width * 1.0025000, size.height * 1.0028571);
-    // path.lineTo(size.width, 0);
-    // path.close();
-
     return path;
   }
 
   @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => true;
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
 }

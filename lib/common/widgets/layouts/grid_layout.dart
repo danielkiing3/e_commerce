@@ -16,12 +16,12 @@ class UGridLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      itemCount: 12,
+      itemCount: itemCount,
       shrinkWrap: true,
       padding: EdgeInsets.zero,
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: itemCount,
+        crossAxisCount: 2,
         crossAxisSpacing: USizes.gridViewSpacing,
         mainAxisSpacing: USizes.gridViewSpacing,
         mainAxisExtent: mainAxisExtent,

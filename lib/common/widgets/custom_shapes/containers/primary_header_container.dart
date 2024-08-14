@@ -16,10 +16,7 @@ class UPrimaryHeaderContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return UCurvedPathWidget(
       child: Container(
-        height: 400,
         color: UColors.primary,
-
-        /// -- If [size.isInfinite': is not true.in Stack] error occured -> Readme.
         child: Stack(
           children: [
             /// -- Backgroud Custom Images
@@ -29,6 +26,8 @@ class UPrimaryHeaderContainer extends StatelessWidget {
               child: UCircularContainer(
                   backgroundColor: UColors.textWhite.withOpacity(0.1)),
             ),
+
+            /// -- Backgroud Custom Images
             Positioned(
               top: 100,
               right: -300,

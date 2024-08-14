@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "947020594115",
+    "project_id": "ecommerceapp-9bbed",
+    "storage_bucket": "ecommerceapp-9bbed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947020594115:android:c691bb3138303125419b76",
+        "android_client_info": {
+          "package_name": "com.superhiim.ecommerce"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPGMNJ6QcjVCWklNITR56J2rKcwg8xzyE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
