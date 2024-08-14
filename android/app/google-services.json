@@ -12,7 +12,20 @@
           "package_name": "com.superhiim.ecommerce"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "947020594115-426l2tc0r5s4v8ioqjh7g27t6i5m945s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.superhiim.ecommerce",
+            "certificate_hash": "b37034f1eadb782949e0eb6c43a2c231acd0f53c"
+          }
+        },
+        {
+          "client_id": "947020594115-efrjuf7auhv34r948m077qvmh8dpva9r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCPGMNJ6QcjVCWklNITR56J2rKcwg8xzyE"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "947020594115-efrjuf7auhv34r948m077qvmh8dpva9r.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "947020594115-kui24ap1krjnkd4gv3p196u7i45q6jmq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.eCommerce"
+              }
+            }
+          ]
         }
       }
     }
