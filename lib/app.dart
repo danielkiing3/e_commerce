@@ -1,4 +1,4 @@
-import 'package:e_commerce/features/authenication/screens/onboarding/onboarding.dart';
+import 'package:e_commerce/utils/constants/colors.dart';
 import 'package:e_commerce/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,10 +14,16 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      themeMode: ThemeMode.system,
-      theme: UAppTheme.lightTheme,
-      darkTheme: UAppTheme.dartTheme,
-      home: const OnboardingScreen(),
-    );
+        themeMode: ThemeMode.system,
+        theme: UAppTheme.lightTheme,
+        darkTheme: UAppTheme.dartTheme,
+
+        // Shows circular progress indicator meanwhile Authenication Repository is deciding to show relevant screen
+        home: const Scaffold(
+          backgroundColor: UColors.primary,
+          body: Center(
+            child: CircularProgressIndicator(),
+          ),
+        ));
   }
 }
