@@ -1,3 +1,4 @@
+import 'package:e_commerce/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 /// Light and Dark CheckBox Themes
@@ -16,7 +17,7 @@ class UCheckboxTheme {
     }),
     fillColor: WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.selected)) {
-        return Colors.white;
+        return UColors.primary;
       } else {
         return Colors.transparent;
       }
@@ -28,7 +29,7 @@ class UCheckboxTheme {
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
     checkColor: WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.selected)) {
-        return Colors.blue;
+        return Colors.white;
       } else {
         return Colors.black;
       }

@@ -23,11 +23,16 @@ Future<void> main() async {
   /// -- Await Native Splash until other items loads
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  // TODO: Initialize Firebase
+  // Initialize Firebase
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
       .then((FirebaseApp _) => Get.put(AuthenicationRepository()));
+
   // TODO: Initialize Authenication
   //
+
+  // FlutterError.onError = (FlutterErrorDetails details) {
+  //   FlutterError.dumpErrorToConsole(details);
+  // };
 
   runApp(const App());
 }

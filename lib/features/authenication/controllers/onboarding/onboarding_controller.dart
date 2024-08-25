@@ -1,4 +1,5 @@
 import 'package:e_commerce/features/authenication/screens/login/login.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -24,7 +25,13 @@ class OnboardingController extends GetxController {
     if (currentPageIndex.value == 2) {
       // Override the [isFirstTime] var to false in memory
       final storage = GetStorage();
+
       storage.write('isFirstTime', false);
+
+      if (kDebugMode) {
+        print('================= GET STORAGE===================');
+        print(storage.read('isFirstTime'));
+      }
 
       // Navigate to the next login screen
       Get.offAll(() => const LoginScreen());

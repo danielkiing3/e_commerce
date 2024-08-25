@@ -1,3 +1,4 @@
+import 'package:e_commerce/bindings/general_bindings.dart';
 import 'package:e_commerce/utils/constants/colors.dart';
 import 'package:e_commerce/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ class _AppState extends State<App> {
         themeMode: ThemeMode.system,
         theme: UAppTheme.lightTheme,
         darkTheme: UAppTheme.dartTheme,
+        initialBinding: GeneralBindings(),
 
         // Shows circular progress indicator meanwhile Authenication Repository is deciding to show relevant screen
         home: const Scaffold(

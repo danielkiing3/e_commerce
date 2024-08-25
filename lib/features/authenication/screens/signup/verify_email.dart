@@ -1,4 +1,4 @@
-import 'package:e_commerce/common/widgets/success_screen/success_screen.dart';
+import 'package:e_commerce/features/authenication/controllers/signup/verify_email_controller.dart';
 import 'package:e_commerce/features/authenication/screens/login/login.dart';
 import 'package:e_commerce/utils/constants/image_strings.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
@@ -9,10 +9,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
-  const VerifyEmailScreen({super.key});
+  const VerifyEmailScreen({
+    super.key,
+    this.email,
+  });
+
+  final String? email;
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(VerifyEmailController());
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -43,7 +50,7 @@ class VerifyEmailScreen extends StatelessWidget {
               ),
               const SizedBox(height: USizes.spaceBtwItems),
               Text(
-                'oluwaferanmiidaniel@gmail.com',
+                email ?? '',
                 style: Theme.of(context).textTheme.labelLarge,
                 textAlign: TextAlign.center,
               ),
@@ -59,12 +66,7 @@ class VerifyEmailScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () => Get.to(() => SuccessScreen(
-                        image: UImages.staticSuccessIllustration,
-                        title: UTexts.yourAccountCreatedTitle,
-                        subtitle: UTexts.yourAccountCreatedSubTitle,
-                        onPressed: () => Get.to(() => const LoginScreen()),
-                      )),
+                  onPressed: () => controller.checkEmailVerifyScreen(),
                   child: const Text(UTexts.uContinue),
                 ),
               ),
@@ -72,7 +74,7 @@ class VerifyEmailScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () => controller.sendEmailVerification(),
                   child: const Text(UTexts.resendEmail),
                 ),
               ),
