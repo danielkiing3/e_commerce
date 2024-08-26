@@ -11,17 +11,33 @@ import '../../../../utils/helpers/network_manager.dart';
 class LoginController extends GetxController {
   static LoginController get instance => Get.find();
 
-  // Variables
+  /// Variables
+
+  // Instance of FlutterSecureStorage for securely storing data
   final secureStorage = const FlutterSecureStorage(
       aOptions: AndroidOptions(encryptedSharedPreferences: true),
       iOptions: IOSOptions(accessibility: KeychainAccessibility.first_unlock));
-  final email = TextEditingController(); // Controller for email input
-  final password = TextEditingController(); // Controller for password input
-  final hidePassword = true.obs; // Obversable for remember me toggle
-  final rememberMe = false.obs; // Obversable for hiding/showing password
-  GlobalKey<FormState> loginFormKey =
-      GlobalKey<FormState>(); // Form key for Login Validation
 
+  // Controllers for handling email and password input fields
+  final email = TextEditingController();
+  final password = TextEditingController();
+
+  // Observable variables for toggling password visibility and remembering credentials
+  final hidePassword = true.obs;
+  final rememberMe = false.obs;
+
+  // Key for managing and validating the login form
+  GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+
+  @override
+  void onInit() async {
+    // Initialize the email and password fields with saved data if available
+    email.text = await secureStorage.read(key: 'REMEMBER_ME_EMAIL') ?? '';
+    password.text = await secureStorage.read(key: 'REMEMBER_ME_PASSWORD') ?? '';
+    super.onInit();
+  }
+
+  /// -- Email and Password Sign In
   Future<void> emailAndPasswordSignIn() async {
     try {
       // Start Loading
@@ -43,15 +59,19 @@ class LoginController extends GetxController {
         return;
       }
 
-      // Save Data if Remember Me is toggled
+      // Save email and password if the "Remember Me" option is selected
       if (rememberMe.value) {
-        // Using an encrypted storage
         await secureStorage.write(
             key: 'REMEMBER_ME_EMAIL', value: email.text.trim());
         await secureStorage.write(
             key: 'REMEMBER_ME_PASSWORD', value: password.text.trim());
+      } else {
+        // Clear saved email and password if "Remember Me" is not selected
+        await secureStorage.write(key: 'REMEMBER_ME_EMAIL', value: '');
+        await secureStorage.write(key: 'REMEMBER_ME_PASSWORD', value: '');
       }
 
+      // Attempt to sign in with email and password
       await AuthenicationRepository.instance
           .signInWithEmailAndPassword(email.text.trim(), password.text.trim());
 
@@ -60,7 +80,30 @@ class LoginController extends GetxController {
 
       AuthenicationRepository.instance.screenRedirect();
     } catch (e) {
-      print(e.toString());
+      UFullScreenLoaders.stopLoading();
+      ULoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+    }
+  }
+
+  /// Google Sign In
+  Future<void> googleSignIn() async {
+    try {
+      // Start Loading
+      UFullScreenLoaders.openLoadingDialog(
+          'Logging you in......', UImages.docerAnimation);
+
+      // Check Internet Connectivity
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        // Remove loader
+        UFullScreenLoaders.stopLoading();
+        return;
+      }
+
+      // Google Authenication
+      final userCredential =
+          await AuthenicationRepository.instance.signInWithGoogle();
+    } catch (e) {
       UFullScreenLoaders.stopLoading();
       ULoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }

@@ -145,8 +145,6 @@ class AuthenicationRepository extends GetxController {
   }
 
   /// [FacebookAuthenication] - FACEBOOK
-  ///
-  /// [AppleAuthenication] - FACEBOOK
 
   /* -------------------- Email & Password Sign in --------------------- */
   /// [LogoutUsers] - Valid for any authenication

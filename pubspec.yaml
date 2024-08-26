@@ -24,6 +24,7 @@ dependencies:
   url_launcher: ^6.3.0
   flutter_native_splash: ^2.4.1  
   smooth_page_indicator: ^1.2.0+3
+  google_sign_in: ^6.2.1
   
 
 
