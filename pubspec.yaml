@@ -24,9 +24,10 @@ dependencies:
   url_launcher: ^6.3.0
   flutter_native_splash: ^2.4.1  
   smooth_page_indicator: ^1.2.0+3
-  google_sign_in: ^6.2.1
-  
 
+  # AUTHENICATION
+  google_sign_in: ^6.2.1
+  flutter_facebook_auth: ^7.1.0
 
   # ICONS  
   iconsax: ^0.0.8
