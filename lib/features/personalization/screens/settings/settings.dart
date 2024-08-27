@@ -9,7 +9,6 @@ import 'package:e_commerce/features/shop/screens/cart/cart.dart';
 import 'package:e_commerce/features/shop/screens/order/order.dart';
 import 'package:e_commerce/utils/constants/colors.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -139,8 +138,7 @@ class SettingsScreen extends StatelessWidget {
                     width: double.infinity,
                     child: OutlinedButton(
                       onPressed: () async {
-                        await FirebaseAuth.instance.signOut();
-                        AuthenicationRepository.instance.screenRedirect();
+                        AuthenicationRepository.instance.logout();
                       },
                       child: const Text('Logout'),
                     ),

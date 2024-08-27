@@ -1,4 +1,5 @@
 import 'package:e_commerce/data/repositories/authenication/authenication_repository.dart';
+import 'package:e_commerce/features/personalization/controllers/user_controller.dart';
 import 'package:e_commerce/utils/constants/image_strings.dart';
 import 'package:e_commerce/utils/helpers/loader.dart';
 import 'package:e_commerce/utils/popups/full_screen_loaders.dart';
@@ -28,6 +29,9 @@ class LoginController extends GetxController {
 
   // Key for managing and validating the login form
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+
+  // User Controller
+  final userController = Get.put(UserController());
 
   @override
   void onInit() async {
@@ -103,7 +107,51 @@ class LoginController extends GetxController {
       // Google Authenication
       final userCredential =
           await AuthenicationRepository.instance.signInWithGoogle();
+
+      // Save user record
+      await userController.saveUserRecord(userCredential);
+
+      // Remove loader
+      UFullScreenLoaders.stopLoading();
+
+      // Redirect
+      AuthenicationRepository.instance.screenRedirect();
     } catch (e) {
+      // Remove Loader
+      UFullScreenLoaders.stopLoading();
+      ULoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+    }
+  }
+
+  /// Facebook Sign In
+  Future<void> facebookSignIn() async {
+    try {
+      // Start Loading
+      UFullScreenLoaders.openLoadingDialog(
+          'Logging you in......', UImages.docerAnimation);
+
+      // Check Internet Connectivity
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        // Remove loader
+        UFullScreenLoaders.stopLoading();
+        return;
+      }
+
+      // Facebook Authenication
+      final userCredential =
+          await AuthenicationRepository.instance.signInWithFacebook();
+
+      // Save user record
+      await userController.saveUserRecord(userCredential);
+
+      // Remove loader
+      UFullScreenLoaders.stopLoading();
+
+      // Redirect
+      AuthenicationRepository.instance.screenRedirect();
+    } catch (e) {
+      // Remove Loader
       UFullScreenLoaders.stopLoading();
       ULoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }

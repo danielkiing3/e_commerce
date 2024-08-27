@@ -48,7 +48,7 @@ class USocialButton extends StatelessWidget {
               width: USizes.iconMd,
               height: USizes.iconMd,
             ),
-            onPressed: () {},
+            onPressed: () => controller.facebookSignIn(),
           ),
         ),
       ],
