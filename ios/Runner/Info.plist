@@ -10,11 +10,24 @@
 				<string>Editor</string>
 				<key>CFBundleURLSchemes</key>
 				<array> 
+					<string>fb1205215057192479</string>
 					<string>com.googleusercontent.apps.947020594115-kui24ap1krjnkd4gv3p196u7i45q6jmq</string>
 				</array>
 			</dict>
 		</array>
 		<!-- End of the Google Sign-in Section -->
+
+		<key>FacebookAppID</key>
+		<string>1205215057192479</string>
+		<key>FacebookClientToken</key>
+		<string>ad605bf43f38c401d65e5cc2aee7e1e7</string>
+		<key>FacebookDisplayName</key>
+		<string>ECommerce</string>
+		<key>LSApplicationQueriesSchemes</key>
+		<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		</array>
 
 		<key>GIDClientID</key>
 		<string>947020594115-kui24ap1krjnkd4gv3p196u7i45q6jmq.apps.googleusercontent.com</string>
